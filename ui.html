@@ -1,0 +1,19 @@
+<h2>Isolation Creator</h2>
+<p>Base: </p>
+<select id="base">
+  <option value="width">width</option>
+  <option value="height">height</option>
+</select>
+
+<p>number of divisions: <input id="count" value="5"></p>
+<button id="create">Create</button>
+
+<script>
+
+document.getElementById('create').onclick = () => {
+  const option = document.getElementById('base').value;
+  const count = parseInt(document.getElementById('count').value, 10);
+  parent.postMessage({ pluginMessage: { type: 'create-isolation', option, count } }, '*')
+}
+
+</script>
